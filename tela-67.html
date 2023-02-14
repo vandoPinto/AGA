@@ -1,0 +1,63 @@
+<div style="height: 60px;width: 100%;">
+    <img style="height: 60px;position: absolute;right: 0px;" src="recursos/imgs/H1.png">
+    <p style="position: absolute;color: white;margin-left: 42px;margin-top: 26px;font-size: 12px;">TÓPICO<strong>
+            2</strong></p>
+    <p style="position: absolute;color: white;margin-left: 112px;margin-top: 26px;font-size: 11px;width: 450px;">
+        ACOLHIMENTO NAS PRÁTICAS DE GESTÃO E ATENÇÃO À SAÚDE NA APS</p>
+</div>
+<div style="margin-top: 53px;margin-left: 39px;width: 812px;">
+    <p>A análise de vulnerabilidade pode ser realizada em diferentes momentos de encontro entre equipe e indivíduos
+        e é um
+        importante instrumento do trabalho do agente comunitário de saúde, assim como de toda a equipe. Entendendo o
+        desafio e a
+        variabilidade das situações das pessoas e das comunidades, alguns autores elaboraram instrumentos para
+        apoiar essa
+        análise.</p>
+    <p style="margin-top: 22px;text-align: center;">Clique nos instrumentos para conhecê-los.</p>
+    <div style="display: flex; margin-left: 100px;margin-top: 47px;width: 590px;justify-content: space-around;">
+        <a href="recursos/pdf/Tela66_EscalaCoelhoSavasi.pdf" target="_blank">
+            <div class="animate__animated animate__backInLeft" id="botao_1" style="cursor: pointer;">
+                <img id="bt1" src="recursos/imgs/btn1.svg" style=" width: 189px;">
+                <img id="btn_1_2" src="recursos/imgs/btnn_1_2.svg"
+                    style="width: 189px;margin-top: -10px; display: none;">
+            </div>
+        </a>
+        <a href="recursos/pdf/Tela66_Classificacao_de_RiscoVulnerabilidades.pdf" target="_blank">
+            <div class="animate__animated animate__backInRight" id="botao_2" style="cursor: pointer;">
+                <img id="bt2" src="recursos/imgs/btn2.svg" style=" width: 189px;">
+                <img id="btn_2_2" src="recursos/imgs/btnn_2_2.svg"
+                    style="width: 189px;margin-top: -10px; display: none;">
+            </div>
+        </a>
+    </div>
+    <div id="janela"></div>
+    <div id="janela"></div>
+</div>
+<footer
+    style="width: 1008px;height: 19px;display: flex;background-color: #0D536A;align-items: center;justify-content: flex-start;">
+    <p style="margin-left: 15px;color: white;font-size: 11px;margin-top: 12px;">ACESSO, ACOLHIMENTO E GESTÃO DA AGENDA
+    </p>
+</footer>
+<script>
+    $(() => {
+        let janelas = $(document).find('[id^=janela]').css('cursor', 'pointer').on("click", apagarJanelas);
+        apagarJanelas();
+        $(document).find('[id^=btn]').hide();
+        let botoes = $(document).find('[id^=botao]').map((index, botao) => {
+            $(botao).css('cursor', 'pointer');
+            $(botao).click(() => {
+                apagarJanelas();
+                // $(janelas[index]).fadeIn();
+                $(document).find(`[id=btn_${index + 1}_2]`).show();
+                $(document).find(`[id=bt${index + 1}]`).hide();
+            })
+        })
+        function apagarJanelas() {
+            janelas.map((index, janela) => {
+                // $(janela).hide();
+                $(document).find(`[id=btn_${index + 1}_2]`).hide();
+                $(document).find(`[id=bt${index + 1}]`).show();
+            })
+        }
+    })
+</script>
